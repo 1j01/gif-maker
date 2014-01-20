@@ -12,11 +12,15 @@ img.frame {
 	max-height: 64px;
 	margin: 5px;
 }
-.poof {
-	-webkit-transform: scale(0);
-	-moz-transform: scale(0);
-	transform: scale(0);
+img.frame.poof {
 	opacity: 0.3;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+	width: 0px;
+	height: 0px;
+	margin: 0px;
 }
 
 #error {
