@@ -5,14 +5,17 @@ $(function(){
 	var $frames = $('#frames');
 	var $done = $('#done');
 	
-	var icon = function(f){
+	var icon;
+	(function(){
 		var $c = $('<canvas width=16 height=16/>');
 		var c = $c.get(0);
 		var ctx = c.getContext('2d');
-		f(ctx,c,0,null,5,false,undefined,NaN,'NaNaN');
 		var $link = $('<link rel="icon">').appendTo($head);
-		$link.attr('href',c.toDataURL('image/png'));
-	};
+		icon = function(f){
+			f(ctx,c,0,null,5,false,undefined,NaN,'NaNaN');
+			$link.attr('href',c.toDataURL('image/png'));
+		};
+	});
 	
 	var gif;
 	
@@ -75,11 +78,9 @@ $(function(){
 						$img.on('load',function(e){
 							var img = $img[0];
 							gif.addFrame(img);
-							if(i === 0){
-								icon(function(ctx){
-									ctx.drawImage(img,0,0,16,16);
-								});
-							}
+							icon(function(ctx){
+								ctx.drawImage(img,0,0,16,16);
+							});
 							next();
 						});
 					};
