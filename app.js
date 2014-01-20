@@ -82,8 +82,8 @@ $(function(){
 				var $oldFrames = $(".frame");
 				$oldFrames.addClass("poof");
 				setTimeout(function(){
-					//$oldFrames.remove();
-				},1000);
+					$oldFrames.remove();
+				},1200);
 				clearIt = false;
 			}
 			var dt = e.originalEvent.dataTransfer, files;

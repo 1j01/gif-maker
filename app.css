@@ -7,19 +7,21 @@
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
+img {
+	margin: 5px;
+}
 img.frame {
 	max-width: 64px;
 	max-height: 64px;
-	margin: 5px;
 }
 img.frame.poof {
-	opacity: 0.3;
-	-webkit-transition: all .5s ease-in-out;
-	-moz-transition: all .5s ease-in-out;
-	-o-transition: all .5s ease-in-out;
-	transition: all .5s ease-in-out;
-	width: 0px;
-	height: 0px;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	max-width: 0px;
+	max-height: 0px;
 	margin: 0px;
 }
 
