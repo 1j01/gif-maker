@@ -75,9 +75,11 @@ $(function(){
 						$img.on('load',function(e){
 							var img = $img[0];
 							gif.addFrame(img);
-							icon(function(ctx){
-								ctx.drawImage(img,0,0,16,16);
-							});
+							if(i === 0){
+								icon(function(ctx){
+									ctx.drawImage(img,0,0,16,16);
+								});
+							}
 							next();
 						});
 					};
