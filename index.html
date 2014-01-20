@@ -3,6 +3,7 @@
 	<head>
 		<title>GIF Maker</title>
 		<link rel="stylesheet" type="text/css" href="app.css">
+		<link rel="stylesheet" type="text/css" href="animate-custom.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="gif.js"></script>
 		<script src="app.js"></script>
@@ -10,7 +11,10 @@
 	<body>
 		Drag and drop images anywhere to add frames.
 		<section id="frames"></section>
-		<button id="done">Done</button>
+		<section id="go">
+			<button id="done">Done</button>
+			<span id="error"></span>
+		</section>
 		<section id="results"></section>
 		<footer>
 			This app uses <a href="https://github.com/jnordberg/gif.js">gif.js</a> by Johan Nordberg

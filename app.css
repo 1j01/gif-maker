@@ -5,3 +5,13 @@
 	margin: 0;
 	padding: 0;
 }
+
+img.frame {
+	max-width: 64px;
+	max-height: 64px;
+	margin: 5px;
+}
+
+#error {
+	color: red;
+}

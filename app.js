@@ -4,6 +4,7 @@ $(function(){
 	var $results = $('#results');
 	var $frames = $('#frames');
 	var $done = $('#done');
+	var $error = $('#error');
 	
 	var icon;
 	(function(){
@@ -12,10 +13,10 @@ $(function(){
 		var ctx = c.getContext('2d');
 		var $link = $('<link rel="icon">').appendTo($head);
 		icon = function(f){
-			f(ctx,c,0,null,5,false,undefined,NaN,'NaNaN');
+			f(ctx,c);
 			$link.attr('href',c.toDataURL('image/png'));
 		};
-	});
+	})();
 	
 	var gif;
 	
@@ -48,6 +49,7 @@ $(function(){
 			gif.render();
 		}catch(e){
 			$done.addClass('failed').text('Failed');
+			$error.text(e.message);
 			console.error(e);
 		}
 	});
@@ -64,16 +66,16 @@ $(function(){
 			var dt = e.originalEvent.dataTransfer;
 			var files;
 			if(dt && (files=dt.files) && files.length){
-				console.debug("dropped files: ",files);
+				//console.debug("dropped files: ",files);
 				var i=0;
 				var next = function(){
 					var file = files[i++];
 					if(!file){return;}
-					console.debug(i,'out of',files.length,':',file);
+					//console.debug(i,'out of',files.length,':',file);
 					
 					var reader = new FileReader();
 					reader.onload = function(e){
-						var $img = $('<img>').appendTo($results);
+						var $img = $('<img class="frame animated flipInY"/>').appendTo($frames);
 						$img.attr('src',reader.result);
 						$img.on('load',function(e){
 							var img = $img[0];
@@ -85,23 +87,12 @@ $(function(){
 						});
 					};
 					reader.onerror = function(e){
+						$error.text(e.message);
 						console.error(reader.result,e);
 					};
 					reader.readAsDataURL(file);
 				};
 				next();
-				/*
-				dt.files.forEach(function(i,file,files){
-					console.log(i,file,files);
-					
-					var reader = new FileReader();
-					reader.onload = function(e){
-						var $img = $('<img>').appendTo($results);
-						$img.attr('src',reader.result);
-						
-						gif.addFrame($img.get(0));
-					};
-				});*/
 			}
 		});
 });
