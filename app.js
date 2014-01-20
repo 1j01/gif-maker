@@ -5,6 +5,7 @@ $(function(){
 	var $frames = $('#frames');
 	var $done = $('#done');
 	var $error = $('#error');
+	var $delay = $('#delay');
 	
 	var icon;
 	(function(){
@@ -20,6 +21,11 @@ $(function(){
 	
 	var gif;
 	
+	var delay = $delay.val();
+	$delay.on('change',function(){
+		delay = $delay.val();
+	});
+	
 	var newGif = function(){
 		console.debug('Making a GIF();');
 		gif = new GIF({
@@ -31,22 +37,27 @@ $(function(){
 	
 	
 	$done.on('click',function(e){
-		$done.addClass('working').text('Working...');
+		$error.text('');
 		
 		if(!gif){
 			console.warn('no gif');
 			newGif();
 			return;
 		}
+		if(!gif.frames.length){
+			$error.text('Add some images first!');
+			return;
+		}
 		gif.on('finished', function(blob){
 			var src = URL.createObjectURL(blob);
-			var $gif = $('<img>').appendTo($frames);
+			var $gif = $('<img>').appendTo($results);
 			$gif.attr('src',src);
 			
-			$done.removeClass('working').text('Done');
+			$done.removeClass('working').text('Create GIF');
 		});
 		try {
 			gif.render();
+			$done.addClass('working').text('Working...');
 		}catch(e){
 			$done.addClass('failed').text('Failed');
 			$error.text(e.message);
@@ -79,7 +90,7 @@ $(function(){
 						$img.attr('src',reader.result);
 						$img.on('load',function(e){
 							var img = $img[0];
-							gif.addFrame(img);
+							gif.addFrame(img, {delay: delay});
 							icon(function(ctx){
 								ctx.drawImage(img,0,0,16,16);
 							});
