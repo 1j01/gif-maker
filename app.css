@@ -12,6 +12,12 @@ img.frame {
 	max-height: 64px;
 	margin: 5px;
 }
+.poof {
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	transform: scale(0);
+	opacity: 0.3;
+}
 
 #error {
 	color: red;
