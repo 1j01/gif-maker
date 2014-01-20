@@ -2,8 +2,18 @@
 <html>
 	<head>
 		<title>GIF Maker</title>
+		<link rel="stylesheet" type="text/css" href="app.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="gif/gif.js"></script>
+		<script src="app.js"></script>
 	</head>
 	<body>
-		This will be a gif-making application.
+		Drag and drop images anywhere to add frames.
+		<section id="frames"></section>
+		<button id="done">Done</button>
+		<section id="results"></section>
+		<footer>
+			This app uses <a href="https://github.com/jnordberg/gif.js">gif.js</a> by Johan Nordberg
+		</footer>
 	</body>
 </html>
