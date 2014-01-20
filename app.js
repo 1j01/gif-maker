@@ -86,8 +86,7 @@ $(function(){
 				},1000);
 				clearIt = false;
 			}
-			var dt = e.originalEvent.dataTransfer;
-			var files;
+			var dt = e.originalEvent.dataTransfer, files;
 			if(dt && (files=dt.files) && files.length){
 				//console.debug("dropped files: ",files);
 				var i=0;
