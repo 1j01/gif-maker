@@ -50,7 +50,7 @@ $(function(){
 			if($('.frame').length == 0){
 				$error.text('Add some images first!');
 			}else{
-				$error.text("Due to previous failure, I had to start over. You'll have to re-add those frames to try again.");
+				$error.text("The added frames are part of a GIF that is lost to me..........");
 			}
 			return;
 		}
@@ -77,7 +77,6 @@ $(function(){
 	var prevent = function(e){
 		e.preventDefault();
 		e.stopPropagation();
-		//console.debug(e.type);
 	};
 	$('body')
 		.on('dragover dragenter',prevent)
@@ -105,7 +104,6 @@ $(function(){
 						}
 						return;
 					}
-					//console.debug(i,'out of',files.length,':',file);
 					
 					if(file.type.match(/image/)){
 						n_images++;
