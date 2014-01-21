@@ -32,7 +32,7 @@ img.frame.poof {
 
 #frames, #results {
 	background: rgba(255,255,255,0.1);
-	box-shadow: 0 0 50px rgba(0,0,0,0.5) inset;
+	box-shadow: 0 0 15px rgba(255,255,255,0.3) inset;
 }
 
 #error {
@@ -44,9 +44,14 @@ button.working {
 }
 
 ::-webkit-selection {
-	background: lime;
-	background: hsla(50, 100%, 60%, 0.8);
+	background: hsla(150, 100%, 60%, 0.5);
 }
 ::selection {
 	background: hsla(150, 100%, 60%, 0.5);
+}
+#error::-webkit-selection {
+	background: hsla(0, 100%, 60%, 0.8);
+}
+#error::selection {
+	background: hsla(0, 100%, 60%, 0.5);
 }
