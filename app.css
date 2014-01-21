@@ -5,6 +5,11 @@
 	margin: 0;
 	padding: 0;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	background: black;
+	color: white;
+}
+a {
+	color: hsl(150, 100%, 50%);
 }
 
 img {
@@ -25,10 +30,23 @@ img.frame.poof {
 	margin: 0px;
 }
 
+#frames, #results {
+	background: rgba(255,255,255,0.1);
+	box-shadow: 0 0 50px rgba(0,0,0,0.5) inset;
+}
+
 #error {
 	color: red;
 }
 
 button.working {
 	opacity: 0.8;
+}
+
+::-webkit-selection {
+	background: lime;
+	background: hsla(50, 100%, 60%, 0.8);
+}
+::selection {
+	background: hsla(150, 100%, 60%, 0.5);
 }
